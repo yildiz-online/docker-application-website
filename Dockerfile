@@ -7,6 +7,7 @@ FROM moussavdb/build-nodejs as build
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
 WORKDIR /app
 COPY --from=clone /app/repo-web /app
+RUN yarn
 RUN ng build --prod
 
 FROM nginx
