@@ -1,7 +1,7 @@
 FROM alpine/git as clone
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
 WORKDIR /app
-RUN git clone --single-branch -b master https://github.com/yildiz-online/repo-web.git
+RUN git clone --single-branch -b develop https://github.com/yildiz-online/repo-web.git
 
 FROM moussavdb/build-nodejs as build
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
