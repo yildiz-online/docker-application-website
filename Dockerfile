@@ -13,3 +13,4 @@ RUN ng build --prod
 FROM nginx
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
 COPY --from=build /app/dist /usr/share/nginx/html
+HEALTHCHECK CMD curl --fail http://localhost:80 || exit 1
