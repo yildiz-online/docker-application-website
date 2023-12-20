@@ -1,9 +1,9 @@
-FROM moussavdb/build-nodejs-arm64 as build
+FROM moussavdb/build-nodejs as build
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
 RUN git clone --single-branch -b develop https://github.com/yildiz-online/repo-web.git
 WORKDIR /repo-web
-RUN yarn
-RUN ng build --prod
+RUN pnpm install
+RUN ng build --configuration production
 
 FROM nginx:alpine
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
