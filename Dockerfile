@@ -1,4 +1,4 @@
-FROM moussavdb/build-nodejs as build
+FROM moussavdb/build-nodejs:lts as build
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
 RUN git clone --single-branch -b develop https://github.com/yildiz-online/repo-web.git
 WORKDIR /repo-web
