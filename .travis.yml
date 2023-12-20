@@ -1,20 +1,19 @@
-
 arch:
   - arm64
 os: linux
+
 dist: jammy
 
-language: generic
+language: shell
 
 services:
   - docker
 
 before_install:
-  - docker build -t moussavdb/application-website-$TRAVIS_CPU_ARCH:latest -t moussavdb/application-website-$TRAVIS_CPU_ARCH:build_$TRAVIS_BUILD_NUMBER .
+  - docker build -t moussavdb/application-engine-website:latest .
 script:
-  - docker images moussavdb/application-website-$TRAVIS_CPU_ARCH
+  - docker images moussavdb/application-engine-website
   
 after_success:
   - docker login -u="moussavdb" -p="$DOCKER_PASSWORD";
-    docker push moussavdb/application-website-$TRAVIS_CPU_ARCH:latest;
-    docker push moussavdb/application-website-$TRAVIS_CPU_ARCH:build_$TRAVIS_BUILD_NUMBER;
+  - docker push moussavdb/application-engine-website:latest;
