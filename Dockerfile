@@ -5,7 +5,7 @@ WORKDIR /repo-web
 RUN pnpm install
 RUN ng build --configuration production
 
-FROM nginx:alpine
+FROM nginx:1.25.3-alpine3.18
 MAINTAINER Grégory Van den Borre <vandenborre.gregory@hotmail.fr>
 COPY --from=build /repo-web/dist /usr/share/nginx/html
 RUN apk add --update curl \
