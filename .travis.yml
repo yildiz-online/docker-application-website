@@ -15,5 +15,5 @@ script:
   - docker images moussavdb/application-engine-website
   
 after_success:
-  - docker login -u="moussavdb" -p="$DOCKER_PASSWORD";
+  - docker login -u="moussavdb" --password-stdin="$DOCKER_PASSWORD";
   - docker push moussavdb/application-engine-website:latest;
